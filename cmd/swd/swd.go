@@ -33,8 +33,6 @@ func main() {
 		out += string([]rune(d)[0])
 		out += "/"
 	  }
-
 	}
-
 	fmt.Printf("%s", out)
 }
