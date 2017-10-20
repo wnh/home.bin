@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -18,16 +17,17 @@ configurable filename for aliases?
 func main() {
 	checkDir, err := os.Getwd()
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("Error getting working directory:", err)
+		os.Exit(1)
 	}
 	for {
-		//fmt.Println("Checking:", checkDir)
 		if existsAtPath(checkDir) {
-			//fmt.Println("FOUND IT in", checkDir)
 			os.Exit(runAt(checkDir))
+		} else if checkDir == "/" {
+			fmt.Println("Unable to find", FILE)
+			os.Exit(1)
 		} else {
 			newdir := filepath.Dir(checkDir)
-			//fmt.Println("Moving to:", newdir)
 			checkDir = newdir
 		}
 	}
@@ -40,7 +40,7 @@ func runAt(dir string) int {
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()
 	if err != nil {
-		fmt.Printf("exit with errr %v\n", err)
+		fmt.Println(PROG, "exited with error", err)
 		return 1
 	} else {
 		return 0
@@ -52,6 +52,5 @@ func existsAtPath(dir string) bool {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		return false
 	}
-	//fmt.Println("found:", path)
 	return true
 }
