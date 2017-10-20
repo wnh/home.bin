@@ -9,7 +9,7 @@ INSTALL
 
 TOOLS
     swd     Short working Directory
-            Prints the current working director with all but the
+            Prints the current working directory with all but the
             last path element shortened to the first character.
             Ex: ~/src/github.com/wnh/home.bin  -> ~/s/g/w/home.bin
 
