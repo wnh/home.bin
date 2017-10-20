@@ -5,7 +5,7 @@ SYNOPSIS
     Utilities for making computering more tolerable
 
 INSTALL
-    go install github.com/wnh/home.bin
+    go install github.com/wnh/home.bin/...
 
 TOOLS
     swd     Short working Directory
