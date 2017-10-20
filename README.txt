@@ -1,8 +1,8 @@
                    HOME.BIN
                  =============
 
-SYNOPSYS
-    Utilites for making computering more tolerable
+SYNOPSIS
+    Utilities for making computering more tolerable
 
 INSTALL
     go install github.com/wnh/home.bin
